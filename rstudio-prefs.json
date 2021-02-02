@@ -1,0 +1,49 @@
+{
+    "initial_working_directory": "~",
+    "enable_snippets": false,
+    "scroll_past_end_of_document": true,
+    "warn_if_no_such_variable_in_scope": true,
+    "warn_variable_defined_but_not_used": true,
+    "style_diagnostics": true,
+    "show_diagnostics_other": true,
+    "code_completion": "manual",
+    "code_completion_other": "manual",
+    "syntax_color_console": true,
+    "console_line_length_limit": 10000,
+    "console_double_click_select": true,
+    "pdf_previewer": "none",
+    "posix_terminal_shell": "zsh",
+    "editor_theme": "Monokai",
+    "panes": {
+        "quadrants": [
+            "TabSet1",
+            "TabSet2",
+            "Source",
+            "Console"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "Viewer"
+        ],
+        "hiddenTabSet": [],
+        "console_left_on_top": false,
+        "console_right_on_top": false,
+        "additional_source_columns": 0
+    },
+    "rmd_chunk_output_inline": false,
+    "latex_preview_on_cursor_idle": "inline_only",
+    "spelling_dictionary_language": "en_GB",
+    "terminal_track_environment": false
+}
