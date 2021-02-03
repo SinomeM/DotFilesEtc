@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 alias :q="exit"
 alias vim="nvim"
 
+# git aliases
 alias gits="git status"
 alias gita="git add -p"
 alias gitc="git commit -m"
@@ -114,6 +115,8 @@ alias gitpu="git push -u upstream"
 alias taa="tmux a"
 
 alias ccow="chuck_cow"
+
+alias tre="tree -a -L 2"
 
 # if interactive shell, cowsay
 if [[ $- == *i* ]]

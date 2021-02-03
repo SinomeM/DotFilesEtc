@@ -4,3 +4,4 @@
 
 - ~/.zshrc
 - ~/.config/rstudio/rstudio-prefs.json
+- ~/.config/nvim/init.vim
