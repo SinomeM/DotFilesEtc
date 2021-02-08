@@ -10,6 +10,7 @@
   syntax enable                   " enable syntax processing
   set mouse=a                     " enable mouse
 
+
   " UI
     set showmatch                 " Show matching brackets.
     set number                    " Show the line numbers on the left side.
@@ -148,4 +149,3 @@
 
   " Theme
     colorscheme gruvbox
-
