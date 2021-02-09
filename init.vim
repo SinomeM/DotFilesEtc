@@ -168,7 +168,7 @@
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'vim-pandoc/vim-pandoc'
     Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'vim-pandoc/vim-rmarkdown'                   " Useless???
+    Plug 'vim-pandoc/vim-rmarkdown'
     " Plug 'jalvesaq/zotcite'   " Zotero integration
 
   " List ends here. Plugins become visible to Vim after this call.
@@ -221,9 +221,12 @@
     let g:rout_follow_colorscheme = 1
     " R commands in R output are highlighted
     let g:Rout_more_colors = 1
-    let R_assign_map = '<M-->'
-    let R_rmdchunk = '``'
+
+    let R_assign = 3
+    " let R_assign_map = '<M-->'
+    " let R_rmdchunk = '``'
     let R_objbr_place = 'script,left'
+    let R_hi_fun_paren = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -263,7 +266,7 @@
 
 " R
   " Start R                              \rf
-  " Close R                              \rc
+  " Close R                              \rq
   " Send line                            ,
   " Send selected lines                  ,
   " Send block                           \bb
