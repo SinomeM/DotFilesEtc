@@ -262,6 +262,8 @@
   " Move to previous tab                 gT
 
 " R
+  " Start R                              \rf
+  " Close R                              \rc
   " Send line                            ,
   " Send selected lines                  ,
   " Send block                           \bb
