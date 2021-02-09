@@ -2,7 +2,7 @@
 " http://nerditya.com/code/guide-to-neovim/
 " https://dougblack.io/words/a-good-vimrc.html
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Basic settings "
 
@@ -84,7 +84,7 @@
     nnoremap B ^
     nnoremap E $
     " $/^ doesn't do anything
-    nnoremap $ <nop>
+    " nnoremap $ <nop>
     nnoremap ^ <nop>
 
   " Shortcuts "
@@ -98,7 +98,10 @@
     " save session, can be recovered running "vim -S", super save
     nnoremap <leader>s :mksession<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " Misc
+  set spell " spell-check on by default
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Plugins
 
@@ -108,18 +111,53 @@
   call plug#begin('~/.vim/plugged')
 
     Plug 'tpope/vim-sensible'          " basic set of universal defaults for vim
-    "Plug 'tpope/vim-sleuth'            " adjust TAB/spaces related settings based on file
-
     Plug 'ctrlpvim/ctrlp.vim'          " CtrlP fuzzy finder
-
     Plug 'vim-airline/vim-airline'     " power line simpler alternative
-    " Plug 'vim-airline/vim-airline-themes'
-
     Plug 'morhetz/gruvbox'             " best theme
-
     Plug 'mbbill/undotree'             " undotree, the super undo
-
     Plug 'chrisbra/csv.vim'            " help visualize and manage CSV in vim
+    Plug 'camspiers/animate.vim'       " With the next one
+    Plug 'camspiers/lens.vim'          " dynamically resize vim windows
+    Plug 'jiangmiao/auto-pairs'        " Match brackets etc
+    Plug 'preservim/nerdtree'
+
+    " Completition
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+    " enable ncm2 for all buffers
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    " IMPORTANT: :help Ncm2PopupOpen for more information
+    set completeopt=noinsert,menuone,noselect
+    " suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
+    set shortmess+=c
+    " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+    inoremap <c-c> <ESC>
+    " When the <Enter> key is pressed while the popup menu is visible, it only hides the menu. 
+    " Use this mapping to close the menu and also start a new line.
+    inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+    " Use <TAB> to select the popup menu:
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    Plug 'ncm2/ncm2-jedi'              " Python
+    Plug 'ncm2/ncm2-path'              " Paths
+    Plug 'ncm2/ncm2-bufword'           " Words from buffer
+    Plug 'yuki-yano/ncm2-dictionary'   " Dictionary (could be not functional)
+    " Plug 'oncomouse/ncm2-biblatex'     " BibLaTex
+
+    Plug 'gaalcaras/ncm-R'             " R
+    " Vim 8 only
+    if !has('nvim')
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+
+    " R, markdown, Tex
+    Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}    " Use vim to edit and run R code
+    " Plug 'lervag/vimtex'                            " LaTex plugin
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'vim-pandoc/vim-rmarkdown'
+    " Plug 'jalvesaq/zotcite'   " Zotero integration
 
   " List ends here. Plugins become visible to Vim after this call.
   call plug#end()
@@ -147,5 +185,48 @@
     let g:airline_right_alt_sep = '|'
     let g:airline_theme='gruvbox'
 
+  " Animations 
+    let g:lens#disabled_filetypes = ['nerdtree', 'fzf']     " animations off for nerdtree
+
+  " NERDtree
+    " nnoremap <leader>N :NERDTree<CR>
+    nnoremap <C-n> :NERDTreeToggle<CR>
+
   " Theme
     colorscheme gruvbox
+
+  " MArkdown Preview
+    nmap <C-p> <Plug>MarkdownPreviewToggle
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Most relevant key-bindings "
+
+" MISC
+  " Clear search highlighting           <C-l> or <space><space> 
+  " Toggle spell check off              ':set nospell'
+  " Previous and next misspelled word   [s ]s
+  " Spell-check suggestions             z=
+  " Add word to dictionary              zg
+  " Open CtrlP file menu                <space>o
+  " Open CtrlP buffer menu              <space>b
+  " Undotree                            <space>u
+  " Save session                        <space>s
+  " Restore session                     'vim -S' (from a terminal)
+  " Toggle relative numbering           <space>R
+  " Highlight last inserted text        gV
+  " Search and replace                  <space>s
+  " NERDtree (toggle)                   <C-n>
+  " Markdown Preview (toggle)           <C-p>
+
+" Movement
+  " f&F + <something>
+
+" R
+  " Compile Rmd file                    ':RMarkdown pdf' or ':RMarkdown html'
+
+" Other
+  " sdfsdf
+
+
+
