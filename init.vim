@@ -2,6 +2,8 @@
 " http://nerditya.com/code/guide-to-neovim/
 " https://dougblack.io/words/a-good-vimrc.html
 
+" It should be quite agnostic whether it is actually used for vim or Neovim.
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Basic settings "
@@ -99,7 +101,10 @@
     nnoremap <leader>s :mksession<CR>
 
   " Misc
-  set spell " spell-check on by default
+    set spell " spell-check on by default
+
+  " Windows and Tabs
+    nnoremap <leader>w <C-w>w
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -118,7 +123,7 @@
     Plug 'chrisbra/csv.vim'            " help visualize and manage CSV in vim
     Plug 'camspiers/animate.vim'       " With the next one
     Plug 'camspiers/lens.vim'          " dynamically resize vim windows
-    Plug 'jiangmiao/auto-pairs'        " Match brackets etc
+    " Plug 'jiangmiao/auto-pairs'        " Match brackets etc
     Plug 'preservim/nerdtree'
 
     " Completition
@@ -132,7 +137,7 @@
     set shortmess+=c
     " CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
     inoremap <c-c> <ESC>
-    " When the <Enter> key is pressed while the popup menu is visible, it only hides the menu. 
+    " When the <Enter> key is pressed while the popup menu is visible, it only hides the menu.
     " Use this mapping to close the menu and also start a new line.
     inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
     " Use <TAB> to select the popup menu:
@@ -185,7 +190,7 @@
     let g:airline_right_alt_sep = '|'
     let g:airline_theme='gruvbox'
 
-  " Animations 
+  " Animations
     let g:lens#disabled_filetypes = ['nerdtree', 'fzf']     " animations off for nerdtree
 
   " NERDtree
@@ -198,32 +203,67 @@
   " MArkdown Preview
     nmap <C-p> <Plug>MarkdownPreviewToggle
 
+  " Nvim-R
+   " remapping the basic :: send line
+    nmap , <Plug>RDSendLine
+    " remapping selection :: send multiple lines
+    vmap , <Plug>RDSendSelection
+    " remapping selection :: send multiple lines + echo lines
+    vmap ,e <Plug>RESendSelection
+    " R output is highlighted with current colorscheme
+    let g:rout_follow_colorscheme = 1
+    " R commands in R output are highlighted
+    let g:Rout_more_colors = 1
+    let R_assign_map = '<M-->'
+    let R_rmdchunk = '``'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Most relevant key-bindings "
 
 " MISC
-  " Clear search highlighting           <C-l> or <space><space> 
-  " Toggle spell check off              ':set nospell'
-  " Previous and next misspelled word   [s ]s
-  " Spell-check suggestions             z=
-  " Add word to dictionary              zg
-  " Open CtrlP file menu                <space>o
-  " Open CtrlP buffer menu              <space>b
-  " Undotree                            <space>u
-  " Save session                        <space>s
-  " Restore session                     'vim -S' (from a terminal)
-  " Toggle relative numbering           <space>R
-  " Highlight last inserted text        gV
-  " Search and replace                  <space>s
-  " NERDtree (toggle)                   <C-n>
-  " Markdown Preview (toggle)           <C-p>
+  " Clear search highlighting            <C-l> or <space><space>
+  " Toggle spell check off               ':set nospell'
+  " Previous and next misspelled word    [s ]s
+  " Spell-check suggestions              z=
+  " Add word to dictionary               zg
+  " Open CtrlP file menu                 <space>o
+  " Open CtrlP buffer menu               <space>b
+  " Undotree                             <space>u
+  " Save session                         <space>s
+  " Restore session                      'vim -S' (from a terminal)
+  " Toggle relative numbering            <space>R
+  " Highlight last inserted text         gV
+  " Search and replace                   <space>s
+  " NERDtree (toggle)                    <C-n>
+  " Markdown Preview (toggle)            <C-p>
 
 " Movement
-  " f&F + <something>
+  " Place cursor under next/prev occurrence of <chr>    f or F + <chr>
+  " Place cursor before next/prev occurrence of <chr>   t or T + <chr>
+
+" Windows & Tabs
+  " Open file in a new window            ':new file'
+  " Move to a window                     <C-w> + h/j/k/l
+  " Toggle windows                       <space>w
+  " Open file in a new tab               ':tabe file'
+  " Move to next tab                     gt
+  " Move to previous tab                 gT
 
 " R
-  " Compile Rmd file                    ':RMarkdown pdf' or ':RMarkdown html'
+  " Send line                            ,
+  " Send selected lines                  ,
+  " Send block                           \bb
+  " Open objects browser                 \ro
+  " Compile Rmd file                     ':RMarkdown pdf' or ':RMarkdown html'
+  " Help                                 \rh
+  " See data.frame                       \rv
+  " Output of a code line as comment     \o
+  " Toggle comment line/selection        \xx
+  " Remove objects and clear console     \rm
+  " Send chunk                           \cc
+  " Insert '<-'                          <M--> (M is Alt key)
+  " Insert chunck in a Rmd file          ``
 
 " Other
   " sdfsdf
