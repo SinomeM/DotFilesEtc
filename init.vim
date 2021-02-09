@@ -161,7 +161,7 @@
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'vim-pandoc/vim-pandoc'
     Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'vim-pandoc/vim-rmarkdown'
+    Plug 'vim-pandoc/vim-rmarkdown'                   " Useless???
     " Plug 'jalvesaq/zotcite'   " Zotero integration
 
   " List ends here. Plugins become visible to Vim after this call.
@@ -216,6 +216,7 @@
     let g:Rout_more_colors = 1
     let R_assign_map = '<M-->'
     let R_rmdchunk = '``'
+    let R_objbr_place = 'script,left'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -241,6 +242,9 @@
 " Movement
   " Place cursor under next/prev occurrence of <chr>    f or F + <chr>
   " Place cursor before next/prev occurrence of <chr>   t or T + <chr>
+  " Create mark a (intimate of the file)                ma
+  " Create mark A (shared in the entire session)        mA
+  " jump to mark a/A                                    'a or 'A
 
 " Windows & Tabs
   " Open file in a new window            ':new file'
@@ -255,7 +259,7 @@
   " Send selected lines                  ,
   " Send block                           \bb
   " Open objects browser                 \ro
-  " Compile Rmd file                     ':RMarkdown pdf' or ':RMarkdown html'
+  " Compile Rmd file (useless??)         ':RMarkdown pdf' or ':RMarkdown html'
   " Help                                 \rh
   " See data.frame                       \rv
   " Output of a code line as comment     \o
@@ -264,6 +268,7 @@
   " Send chunk                           \cc
   " Insert '<-'                          <M--> (M is Alt key)
   " Insert chunck in a Rmd file          ``
+  " Knit to HTML                         \kh
 
 " Other
   " sdfsdf
