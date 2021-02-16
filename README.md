@@ -62,3 +62,4 @@
 - Insert chunck in a Rmd file          ``
 - Knit to HTML                         \kh
 
+
