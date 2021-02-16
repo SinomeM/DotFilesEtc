@@ -98,7 +98,7 @@
     " toggle undotree, super undo
     nnoremap <leader>u :UndotreeToggle<CR>
     " save session, can be recovered running "vim -S", super save
-    nnoremap <leader>s :mksession<CR>
+    nnoremap <leader>w :mksession<CR>
 
   " Misc
     set spell " spell-check on by default
@@ -241,7 +241,7 @@
   " Open CtrlP file menu                 <space>o
   " Open CtrlP buffer menu               <space>b
   " Undotree                             <space>u
-  " Save session                         <space>s
+  " Save session                         <space>w
   " Restore session                      'vim -S' (from a terminal)
   " Toggle relative numbering            <space>R
   " Highlight last inserted text         gV
