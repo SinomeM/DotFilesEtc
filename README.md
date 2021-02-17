@@ -10,7 +10,7 @@
 
 ### Misc
 
-- Clear search highlighting            <C-l> or <space><space>
+- Clear search highlighting            "<C-l> or <space><space>"
 - Toggle spell check off               ':set nospell'
 - Previous and next misspelled word    [s ]s
 - Spell-check suggestions              z=
