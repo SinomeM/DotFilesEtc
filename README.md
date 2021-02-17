@@ -2,15 +2,18 @@
 
 ## File default location 
 
+```
 - ~/.zshrc
 - ~/.config/rstudio/rstudio-prefs.json
 - ~/.config/nvim/init.vim
+```
 
 ## Vim main key-bindings and commands
 
 ### Misc
 
-- Clear search highlighting            \<C-l\> or \<space\>\<space\>
+```
+- Clear search highlighting            <C-l> or <space><space>
 - Toggle spell check off               ':set nospell'
 - Previous and next misspelled word    [s ]s
 - Spell-check suggestions              z=
@@ -25,26 +28,32 @@
 - Search and replace                   <space>s
 - NERDtree (toggle)                    <C-n>
 - Markdown Preview (toggle)            <C-p>
+```
 
 ### Movement
 
+```
 - Place cursor under next/prev occurrence of <chr>    f or F + <chr>
 - Place cursor before next/prev occurrence of <chr>   t or T + <chr>
 - Create mark a (intimate of the file)                ma
 - Create mark A (shared in the entire session)        mA
 - jump to mark a/A                                    'a or 'A
+```
 
 ### Windows & Tabs
 
+```
 - Open file in a new window            ':new file'
 - Move to a window                     <C-w> + h/j/k/l
 - Toggle windows                       <space>w
 - Open file in a new tab               ':tabe file'
 - Move to next tab                     gt
 - Move to previous tab                 gT
+```
 
 ### R
 
+```
 - Start R                              \rf
 - Close R                              \rq
 - Send line                            ,
@@ -61,5 +70,5 @@
 - Insert '<-'                          <M--> (M is Alt key)
 - Insert chunck in a Rmd file          ``
 - Knit to HTML                         \kh
-
+```
 
