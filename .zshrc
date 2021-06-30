@@ -116,7 +116,7 @@ alias taa="tmux a"
 
 alias ccow="chuck_cow"
 
-alias tre="tree -a -L 2"
+alias tre="tree -a -L 2 -C"
 
 # if interactive shell, cowsay
 if [[ $- == *i* ]]
