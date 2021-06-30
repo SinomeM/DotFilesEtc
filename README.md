@@ -60,7 +60,7 @@
 - Send selected lines                  ,
 - Send block                           \bb
 - Open objects browser                 \ro
-- Compile Rmd file (useless??)         ':RMarkdown pdf' or ':RMarkdown html'
+- Compile Rmd file                     ':RMarkdown pdf' or ':RMarkdown html'
 - Help                                 \rh
 - See data.frame                       \rv
 - Output of a code line as comment     \o
